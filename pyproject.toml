@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drt-sc"
+version = "0.2.0"
+description = "H, TRAIL and six baselines for pickup-delivery recovery"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "networkx", "shapely", "pyproj"]
+
+[project.optional-dependencies]
+trail = ["torch"]
+deco = ["tensorflow==2.15.1", "numpy<2"]
+osm = ["osmium"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+namespaces = true
+include = ["common*", "solvers*"]
